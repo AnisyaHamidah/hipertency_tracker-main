@@ -1,5 +1,6 @@
 // lib/screens/material_screen.dart
 import 'package:flutter/material.dart';
+import 'main_detail_screen.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MaterialScreen extends StatefulWidget {
@@ -130,7 +131,17 @@ class _MaterialScreenState extends State<MaterialScreen> {
         borderRadius: BorderRadius.circular(12),
         onTap: () {
           // Navigasi ke video player atau halaman detail
-          _showMaterialDetail(context, title, description, duration, videoId);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => MaterialDetailScreen(
+                title: title,
+                description: description,
+                duration: duration,
+                videoId: videoId,
+              ),
+            ),
+          );
         },
         child: Padding(
           padding: const EdgeInsets.all(15),
